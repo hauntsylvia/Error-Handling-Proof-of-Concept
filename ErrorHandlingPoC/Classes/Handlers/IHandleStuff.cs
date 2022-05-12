@@ -14,6 +14,8 @@ namespace ErrorHandlingPoC.Classes.Handlers
         {
         }
 
+        public string Name => "Example Handler";
+
         public Task Handle()
         {
             throw new BasePoCException("This was a forceful handler error!");

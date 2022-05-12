@@ -10,5 +10,6 @@ namespace ErrorHandlingPoC.Classes.Interfaces
     {
         Task Handle();
         Task OnError(Exception Thrown);
+        string Name { get; }
     }
 }

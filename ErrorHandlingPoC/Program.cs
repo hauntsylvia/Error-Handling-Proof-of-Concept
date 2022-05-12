@@ -41,6 +41,7 @@ namespace ErrorHandlingPoC
                 catch (Exception E)
                 {
                     Handler.OnError(E);
+                    File.WriteAllText(@"\AllErrorLogs.txt", $"{Handler.Name} had an issue!\n{E.Message}");
                 }
             }
         }
