@@ -11,27 +11,13 @@ namespace ErrorHandlingPoC
 {
     public class Program
     {
-        internal static List<IHandler> allHandlersIUse = new();
-
-        public static List<IHandler> GetAllHandlers()
+        internal static List<IHandler> allHandlersIUse = new()
         {
-            List<IHandler> ListOfHandlers = new();
-            foreach(Type T in Assembly.GetExecutingAssembly().GetTypes())
-            {
-                if(T.IsAssignableFrom(typeof(IHandler)) && T != typeof(IHandler))
-                {
-                    if(T is IHandler H)
-                    {
-                        ListOfHandlers.Add(H);
-                    }
-                }
-            }
-            return ListOfHandlers;
-        }
+            new IHandleStuff()
+        };
 
         public static void Main()
         {
-            Program.allHandlersIUse = Program.GetAllHandlers();
             foreach (IHandler Handler in Program.allHandlersIUse)
             {
                 try
